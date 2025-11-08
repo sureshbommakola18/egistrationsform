@@ -1,0 +1,104 @@
+4.<!DOCTYPE html>
+5.<html lang="en">
+6.<head>
+7.<meta charset="UTF-8">
+8.<meta name="viewport" content="width=device-width, initial-scale=1.0">
+9.<title>Registration Form</title>
+10.<!-- Inline CSS -->
+11.<style>
+12.        body {
+13.            font-family: Arial, sans-serif;
+14.            text-align: center;
+15.            margin-top: 50px;
+16.            background-color: #f5f5f5;
+17.        }
+18.        form {
+19.            display: inline-block;
+20.            text-align: left;
+21.            background-color: #ffffff;
+22.            padding: 20px;
+23.            border-radius: 8px;
+24.            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+25.        }
+26.        input {
+27.            width: 100%;
+28.            padding: 10px;
+29.            margin: 10px 0;
+30.            box-sizing: border-box;
+31.            border-radius: 4px;
+32.            border: 1px solid #ccc;
+33.        }
+34.        button {
+35.            background-color: #4CAF50;
+36.color: white;
+37.            padding: 10px 20px;
+38.            border: none;
+39.            border-radius: 4px;
+40.            cursor: pointer;
+41.        }
+42.button:hover {
+43.            background-color: #45a049;
+44.        }
+45.        #message {
+46.color: green;
+47.            font-weight: bold;
+48.            margin-top: 20px;
+49.        }
+50..error {
+51.color: red;
+52.        }
+53.</style>
+54.</head>
+55.<body>
+56.<h2>Registration Form</h2>
+57.<!-- Registration Form -->
+58.<form id="registrationForm">
+59.<label for="username">Username:</label><br>
+60.<input type="text" id="username" name="username" placeholder="Enter username" required><br>
+61.
+62.<label for="email">Email:</label><br>
+63.<input type="email" id="email" name="email" placeholder="Enter email" required><br>
+64.
+65.<label for="password">Password:</label><br>
+66.<input type="password" id="password" name="password" placeholder="Enter password" required><br>
+67.
+68.<button type="submit">Register</button>
+69.</form>
+70.
+71.<!-- Message Display -->
+72.<p id="message"></p>
+73.
+74.<!-- Inline JavaScript -->
+75.<script>
+76.document.getElementById("registrationForm").addEventListener("submit", function(event) {
+77.event.preventDefault(); // Prevent form from submitting
+78.
+79.            // Get input values
+80.const username = document.getElementById("username").value;
+81.const email = document.getElementById("email").value;
+82.const password = document.getElementById("password").value;
+83.constmessageElement = document.getElementById("message");
+84.            // Validate inputs
+85.            if (username === "" || email === "" || password === "") {
+86.messageElement.textContent = "All fields are required!";
+87.messageElement.classList.add("error");
+88.                return;
+89.            }
+90.            // Check for valid email format
+91.constemailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+92.            if (!emailPattern.test(email)) {
+93.messageElement.textContent = "Invalid email format!";
+94.messageElement.classList.add("error");
+95.                return;
+96.            }
+97.            // If all validations pass, show success message
+98.messageElement.textContent = "Registration Successful!";
+99.messageElement.classList.remove("error");
+100.messageElement.style.color = "green";
+101.
+102.            // Clear the form
+103.document.getElementById("registrationForm").reset();
+104.        });
+105.</script>
+106.</body>
+107.</html>
